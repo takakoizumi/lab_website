@@ -50,3 +50,89 @@ main.container{padding:28px 0 56px}
   .hero__title{font-size:28px}
   .hero__content{padding:18px}
 }
+
+/* ===== Brand Navigation ===== */
+
+.site-nav {
+  border-top: 4px solid #c7dc68;
+  background: #ffffff;
+}
+
+.nav-list a {
+  transition: all 0.2s ease;
+}
+
+.nav-list a:hover {
+  background: #c7dc68;
+  color: #333;
+}
+
+.nav-list a.active {
+  background: #d6c6af;
+}
+
+/* ===== Section Accent ===== */
+
+.section-title {
+  position: relative;
+  font-size: 22px;
+  margin-bottom: 18px;
+  padding-bottom: 8px;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 6px;
+  background: #c7dc68;
+  margin-top: 6px;
+}
+
+/* ===== Brand Buttons ===== */
+
+.btn-primary {
+  background: #c7dc68;
+  color: #333;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: #b6c957;
+}
+
+.btn-secondary {
+  background: #d6c6af;
+  color: #333;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+}
+
+.card {
+  background: #ffffff;
+  border: 2px solid #d6c6af;
+  border-radius: 8px;
+  padding: 20px;
+  transition: 0.2s;
+}
+
+.card:hover {
+  border-color: #c7dc68;
+  transform: translateY(-3px);
+}
+
+.site-footer {
+  border-top: 6px solid #c7dc68;
+  background: #f7f7f7;
+  padding: 30px 0;
+}
+
+.section-light {
+  background: rgba(214,198,175,0.15);
+  padding: 40px 0;
+}
+
