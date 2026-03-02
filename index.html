@@ -8,53 +8,75 @@
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
-  <header style="padding:16px 0;border-bottom:1px solid rgba(0,0,0,.1);background:#f7f7f7;">
-    <div style="width:min(1100px,calc(100% - 32px));margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;">
-      <div style="display:flex;align-items:center;gap:10px;">
-        <div style="width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#c7dc68,#d6c6af);border:1px solid rgba(0,0,0,.08);"></div>
-        <div style="line-height:1.2;">
-          <div style="font-size:12px;color:#666;">University Name</div>
-          <div style="font-weight:700;">Agroecology Lab</div>
-        </div>
+
+  <header class="site-header">
+    <div class="container header__row">
+      <a class="brand" href="./">
+        <span class="brand__logo" aria-hidden="true"></span>
+        <span class="brand__text">
+          <span class="brand__univ">University Name</span>
+          <span class="brand__lab">Agroecology Lab</span>
+        </span>
+      </a>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <a class="btn btn--ghost" href="./en/">English</a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
       </div>
-      <a href="./en/" style="text-decoration:none;border:1px solid rgba(0,0,0,.1);padding:8px 12px;border-radius:999px;color:#333;">English</a>
     </div>
-    <nav style="width:min(1100px,calc(100% - 32px));margin:10px auto 0;display:flex;gap:10px;flex-wrap:wrap;">
-      <a href="./researches/" class="nav">Researches</a>
-      <a href="./members/" class="nav">Members</a>
-      <a href="./news/" class="nav">News</a>
-      <a href="./publications/" class="nav">Publications</a>
-      <a href="./contact/" class="nav">Contact</a>
-      <a href="./gallery/" class="nav">Gallery</a>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="./">Home</a></li>
+          <li><a href="./researches/">Researches</a></li>
+          <li><a href="./members/">Members</a></li>
+          <li><a href="./news/">News</a></li>
+          <li><a href="./publications/">Publications</a></li>
+          <li><a href="./contact/">Contact</a></li>
+          <li><a href="./gallery/">Gallery</a></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
-  <main style="width:min(1100px,calc(100% - 32px));margin:24px auto 56px;">
+  <main class="container">
+
     <section class="hero">
       <div class="hero__img" style="background-image:url('./assets/img/hero.jpg');"></div>
       <div class="hero__overlay"></div>
       <div class="hero__content">
         <h1 class="hero__title">キャッチコピーをここに</h1>
-        <p class="hero__lead">研究概要（2〜3文）。一般向けに研究室のテーマと強みを短く。</p>
+        <p class="hero__lead">
+          研究概要（2〜3文）。一般向けに研究室のテーマと強みを短く。
+        </p>
       </div>
     </section>
 
     <section style="margin-top:26px;">
       <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px;">
         <h2 style="margin:0;font-size:20px;">Latest News</h2>
-        <a href="./news/" style="color:#333;">See all →</a>
+        <a href="./news/">See all →</a>
       </div>
+
       <div class="card">
-        <p class="muted" style="margin:0;">（ここは後でNewsページと連携して自動表示にもできます。まずは表示確認を優先します）</p>
+        <p class="muted" style="margin:0;">
+          Newsページを更新してください。
+        </p>
       </div>
     </section>
+
   </main>
 
-  <footer style="border-top:1px solid rgba(0,0,0,.1);padding:18px 0;background:#f7f7f7;">
-    <div style="width:min(1100px,calc(100% - 32px));margin:0 auto;color:#666;font-size:14px;">
-      © <span id="y"></span> Agroecology Lab
+  <footer class="site-footer">
+    <div class="container footer__row">
+      <div class="muted">© <span id="y"></span> Agroecology Lab</div>
+      <div class="muted">
+        Contact: 
+        <span class="js-email" data-user="YOURNAME" data-domain="example" data-tld="ac.jp"></span>
+      </div>
     </div>
   </footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+
+  <script src="./assets/js/main.js" defer></script>
 </body>
 </html>
