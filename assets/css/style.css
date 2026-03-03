@@ -240,3 +240,26 @@ main.container{padding:80px 0 56px}
   margin: 0 0 24px 0;
   color: var(--muted);
 }
+
+/* ===== Card spacing inside grids (Topics etc.) ===== */
+
+/* grid の中のカード間隔を gap で作る（これが正解） */
+.grid{
+  display: grid;          /* 念のため（既にgridでもOK） */
+  gap: 18px;              /* ← ここが “カード同士の間隔” */
+}
+
+/* 2列・3列の指定（既にある場合は上書きされませんが、無ければ効く） */
+.grid-2{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-3{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+/* カード自身の余計な外側余白をゼロに（gap で統一するため） */
+.grid > .card{
+  margin: 0;
+}
+
+/* モバイルは1列にして gap も少し詰める */
+@media (max-width: 900px){
+  .grid-2, .grid-3{ grid-template-columns: 1fr; }
+  .grid{ gap: 14px; }
+}
