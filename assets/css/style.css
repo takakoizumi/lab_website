@@ -213,3 +213,15 @@ main.container{padding:80px 0 56px}
   padding: 40px 0;
 }
 
+/* ----- Spacing: section title -> content ----- */
+.section-title {
+  margin-bottom: 18px; /* 見出しと本文の間隔 */
+}
+
+/* 見出しの直後がカード/グリッドのときは少し強めに */
+.section-title + .grid,
+.section-title + .card,
+.section-title + ul,
+.section-title + ol {
+  margin-top: 10px;
+}
