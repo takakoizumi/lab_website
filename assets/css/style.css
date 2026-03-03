@@ -260,3 +260,14 @@ main.container{padding:80px 0 56px}
 .section__title + ol {
   margin-top: 12px !important;
 }
+
+/* Researches / Members: 見出し直下の最初のブロックに余白を強制 */
+.section-title + .card,
+.section-title + .grid {
+  margin-top: 18px !important;
+}
+
+/* 緑バー（section-title の下線）の下に余白を確保 */
+.section-title::after{
+  margin-bottom: 22px !important;
+}
