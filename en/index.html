@@ -9,20 +9,41 @@
 
 <body>
   <!-- Header (same layout as JP) -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="./">
-        <!-- ロゴ画像があるなら差し替え -->
-        <!-- <img src="../assets/img/labname.png" alt="Agroecology Lab" class="brand-logo"> -->
-        <span class="brand-text">Agroecology Lab</span>
-      </a>
+<header class="site-header">
+  <div class="container header__row">
+    <!-- 英語トップ（en/）へのリンク -->
+    <a class="brand" href="./">
+      <span class="brand__logo" aria-hidden="true"></span>
+      <span class="brand__text">
+        <span class="brand__univ">University Name</span>
+        <span class="brand__lab">Agroecology Lab</span>
+      </span>
+    </a>
 
-      <div class="header-actions">
-        <!-- 右上：Japanese → 日本語トップへ -->
-        <a class="btn-secondary" href="../">Japanese</a>
-      </div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <!-- 右上：Japanese → 日本語トップへ -->
+      <a class="btn btn--ghost" href="../">Japanese</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
     </div>
-  </header>
+  </div>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    <div class="container">
+      <ul class="nav-list">
+        <!-- Homeは英語トップ -->
+        <li><a href="./" class="is-active">Home</a></li>
+
+        <!-- ここは日本語ページへ（英語版は作らない方針なので） -->
+        <li><a href="../researches/">Researches</a></li>
+        <li><a href="../members/">Members</a></li>
+        <li><a href="../news/">News</a></li>
+        <li><a href="../publications/">Publications</a></li>
+        <li><a href="../contact/">Contact</a></li>
+        <li><a href="../gallery/">Gallery</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
 
   <main class="container">
 
@@ -42,7 +63,7 @@
     <section class="section">
       <div class="section__title">
         <h2 class="section-title">Latest News</h2>
-        <a class="btn-primary" href="../news/">See all →</a>
+        <a href="../news/">See all →</a>
       </div>
 
       <div class="grid">
@@ -70,7 +91,7 @@
     <section class="section">
       <div class="section__title">
         <h2 class="section-title">Researches</h2>
-        <a class="btn-primary" href="../researches/">See details →</a>
+        <a href="../researches/">See details →</a>
       </div>
 
       <div class="grid grid-2">
@@ -102,10 +123,40 @@
 
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p class="muted" style="margin:0;">© Agroecology Lab</p>
+<footer class="site-footer">
+  <div class="container footer__row">
+    <div class="muted">© <span id="y"></span> Agroecology Lab</div>
+    <div class="muted">
+      Contact: <span class="js-email" data-user="**" data-domain="**" data-tld="ac.jp"></span>
     </div>
-  </footer>
+  </div>
+</footer>
+
+<script>
+  // year
+  const y = document.getElementById('y');
+  if (y) y.textContent = new Date().getFullYear();
+
+  // email (split display)
+  document.querySelectorAll('.js-email').forEach(el => {
+    const user = el.dataset.user || '';
+    const domain = el.dataset.domain || '';
+    const tld = el.dataset.tld || '';
+    const addr = `${user}@${domain}.${tld}`;
+    el.textContent = addr;
+    el.href = `mailto:${addr}`;
+  });
+
+  // mobile nav toggle (if your JP pages use it)
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.site-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+</script>
+
 </body>
 </html>
